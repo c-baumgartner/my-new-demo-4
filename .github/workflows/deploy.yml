@@ -26,8 +26,10 @@ jobs:
       ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
       ARM_USE_OIDC: true
-
-
+      TF_STATE_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      TF_STATE_RESOURCE_GROUP: ${{ secrets.TFSTATE_RESOURCE_GROUP_NAME }}
+      TF_STATE_BLOB_ACCOUNT: ${{ secrets.TFSTATE_STORAGE_ACCOUNT_NAME }}
+      TF_STATE_BLOB_CONTAINER: ${{ vars.TF_STATE_BLOB_CONTAINER || 'tfstate' }}     
     outputs:
       tfplanExitCode: ${{ steps.tf-plan.outputs.exitcode }}
 
@@ -140,8 +142,10 @@ jobs:
       ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
       ARM_USE_OIDC: true
-
-    
+      TF_STATE_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      TF_STATE_RESOURCE_GROUP: ${{ secrets.TFSTATE_RESOURCE_GROUP_NAME }}
+      TF_STATE_BLOB_ACCOUNT: ${{ secrets.TFSTATE_STORAGE_ACCOUNT_NAME }}
+      TF_STATE_BLOB_CONTAINER: ${{ vars.TF_STATE_BLOB_CONTAINER || 'tfstate' }}   
     steps:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
