@@ -1,4 +1,4 @@
-resource_group_name = "rg-replace-me" #TODO: replace with your resource group name
+resource_group_name = "airgap-test-4"
 
 default_tags = {
   "global" = "value"
